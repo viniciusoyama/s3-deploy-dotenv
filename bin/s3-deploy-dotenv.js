@@ -1,6 +1,11 @@
 #!/usr/bin/env node
+var ARGV = require('minimist')(process.argv.slice(2));
 
-require('dotenv').config();
+if (ARGV['env-path']) {
+  require('dotenv').config({ path: ARGV['env-path'] });
+} else {
+  require('dotenv').config();
+}
 
 var deploy = require('../lib');
 var env = process.env;
