@@ -9,6 +9,7 @@ npm install s3-deploy-dotenv
 ```
 
 ### Configure
+For custom .env file names pass an argument like -- --env-path .env.custom
 Set environment variables or add to your `.env` file following parameters:
 ```
 # S3 required options
@@ -17,7 +18,7 @@ S3_ACCESS_KEY_ID=YOUR_S3_ACCESS_KEY_ID
 S3_SECRET_ACCESS_KEY=YOUR_S3_SECRET_ACCESS_KEY
 S3_BUCKET=S3_S3_BUCKET
 
-# S3 optional, specified default values 
+# S3 optional, specified default values
 S3_DEFAULT_CONTENT_TYPE=application/octet-stream
 S3_MAX_ASYNC_STREAMS=20
 S3_UPLOAD_CONCURRENT_PARTS=5
@@ -30,10 +31,10 @@ S3_MULTIPART_UPLOAD_SIZE=15728640
 # CloudFront
 CLOUDFRONT_DISTRIBUTION=CLOUDFRONT_DISTRIBUTION_KEY
 
-# Source directory, if empty use project root 
+# Source directory, if empty use project root
 S3_LOCAL_DIR=dist
 
-# Destination directory, if empty use bucket root 
+# Destination directory, if empty use bucket root
 S3_PREFIX=some/remote/dir/Keep_empty_if_root
 
 # Gzip, optional, specified default values
@@ -57,7 +58,7 @@ npm run deploy
 ```
 
 ### CloudFront cache invalidation
-Set `CLOUDFRONT_DISTRIBUTION` for smart cache invalidation. Invalidation apply only for files with changed ETag.  
+Set `CLOUDFRONT_DISTRIBUTION` for smart cache invalidation. Invalidation apply only for files with changed ETag.
 
 ### Gzip content
 Files with the extensions you specify will be compressed on the fly without the creation of additional temporary files on disk.
@@ -86,7 +87,7 @@ For example:
 ```
 Before start upload all other files, `maintenance.html` will be uploaded as `index.html`.
 After all files uploading is done, content of `index.html` on server will be replaced with the original `index.html`.
- 
+
 Important note: extensions of target and stub files must be same avoid warning message:
 ```
   WARNING> Target and stub files should have same extensions!
@@ -94,12 +95,12 @@ Important note: extensions of target and stub files must be same avoid warning m
 
 ### Security note
 Always keep `.env` entry in your `.gitignore` file to avoid data leakage passwords and secret keys!
-  
+
 ### TODO
 * Unit tests
 * Gzip minimal size
 * Add ignored file extensions
-* Any ideas? Request features [here](https://github.com/wearevolt/s3-deploy-dotenv/labels/enhancement) 
+* Any ideas? Request features [here](https://github.com/wearevolt/s3-deploy-dotenv/labels/enhancement)
 
 ### Issues
 
@@ -109,5 +110,4 @@ Have a bug? Please create an issue here on GitHub!
 
 ### License
 
-MIT 
- 
+MIT
